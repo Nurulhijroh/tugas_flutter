@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My List',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey[200],
+        scaffoldBackgroundColor: Colors.grey[400],
         primarySwatch: Colors.blue,
       ),
       home: const TodoScreen(),
@@ -85,7 +85,7 @@ class _TodoScreenState extends State<TodoScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Colors.grey[200],
         title: const Text('My List')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
