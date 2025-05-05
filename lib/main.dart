@@ -113,9 +113,10 @@ class _TodoScreenState extends State<TodoScreen>
             child: const Text('Simpan'),
           ),
         ],
-      ),
-      },
-    );
+      );
+    },
+  );
+    
   }
 
   @override
