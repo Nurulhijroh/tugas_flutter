@@ -84,7 +84,9 @@ class _TodoScreenState extends State<TodoScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('My List')),
+      appBar: AppBar(
+        backgroundColor: Colors.grey[300],
+        title: const Text('My List')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -94,7 +96,7 @@ class _TodoScreenState extends State<TodoScreen>
               controller: _controller,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
-                hintText: 'Masukkan tugas baru',
+                hintText: 'Masukkan daftar tugas',
                 hintStyle: TextStyle(color: Colors.black54),
                 fillColor: Colors.white,
                 filled: true,
