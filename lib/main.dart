@@ -82,17 +82,20 @@ class _TodoScreenState extends State<TodoScreen>
   }
 
   void _editTodo(int index) {
-    final TextEditingController editController =
-    TextEditingController(text: _todos[index].text);
-
+    
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
+      builder: (context) {final TextEditingController editController =
+    TextEditingController(text: _todos[index].text);
+    return AlertDialog(
         title: const Text('Edit Tugas'),
-        content: TextFieldS(
+        content: TextField(
           controller: editController,
           decoration: const InputDecoration(
-            hintText: 'Edit tugas',
+            hintText: 'Edit ',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+            ),
           ),
         ),
         actions: [
@@ -111,6 +114,7 @@ class _TodoScreenState extends State<TodoScreen>
           ),
         ],
       ),
+      },
     );
   }
 
@@ -152,6 +156,7 @@ class _TodoScreenState extends State<TodoScreen>
                     todo: _todos[index],
                     onDelete: () => _removeTodo(index),
                     onToggleCompletion: () => _toggleCompletion(index),
+                    onEdit: () => _editTodo(index),
                   );
                 },
               ),
@@ -182,12 +187,14 @@ class TodoItem extends StatelessWidget {
   final TodoItemData todo;
   final VoidCallback onDelete;
   final VoidCallback onToggleCompletion;
+  final VoidCallback onEdit;
 
   const TodoItem({
     super.key,
     required this.todo,
     required this.onDelete,
     required this.onToggleCompletion,
+    required this.onEdit,
   });
 
   @override
@@ -215,6 +222,10 @@ class TodoItem extends StatelessWidget {
               onPressed: onToggleCompletion,
             ),
             
+            IconButton(
+              icon: const Icon(Icons.edit, color: Colors.blue),
+              onPressed: onEdit,
+            ),
             IconButton(
               icon: const Icon(Icons.delete, color: Colors.red),
               onPressed: onDelete,
