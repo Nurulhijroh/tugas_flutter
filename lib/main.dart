@@ -81,6 +81,39 @@ class _TodoScreenState extends State<TodoScreen>
     });
   }
 
+  void _editTodo(int index) {
+    final TextEditingController editController =
+    TextEditingController(text: _todos[index].text);
+
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Edit Tugas'),
+        content: TextFieldS(
+          controller: editController,
+          decoration: const InputDecoration(
+            hintText: 'Edit tugas',
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text ('Batal'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                _todos[index].text = editController.text;
+              });
+              Navigator.of(context).pop();
+            },
+            child: const Text('Simpan'),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
