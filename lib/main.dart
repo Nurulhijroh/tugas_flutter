@@ -101,9 +101,11 @@ class _TodoScreenState extends State<TodoScreen>
                 fillColor: Colors.white,
                 filled: true,
                 enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
                   borderSide: BorderSide(color: Colors.black),
                 ),
                 focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(16)),
                   borderSide: BorderSide(color: Colors.black, width: 2),
                 ),
               ),
