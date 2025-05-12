@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey[400],
         primarySwatch: Colors.blue,
       ),
+      darkTheme : ThemeData.dark(),
+      themeMode : themeMode.system,
       home: const TodoScreen(),
     );
   }
